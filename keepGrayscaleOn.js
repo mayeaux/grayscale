@@ -4,7 +4,7 @@
 
 const { exec } = require("child_process");
 
-function dontRunBasedOnTime() {
+function runBasedOnTime(){
   var d = new Date(); // current time
   var hours = d.getHours();
   var mins = d.getMinutes();
@@ -12,20 +12,25 @@ function dontRunBasedOnTime() {
   console.log(d, hours, mins);
 
   // hours are smaller than 9 and larger than 11:30 pm
-  return hours >= 9 || (hours === 23 && mins <= 30);
+  const inEarlierSegment = hours < 9
+  // if hours greater or equal to 23 (11 pm or over) while minutes are equal or over 30
+  const inLaterSegment = (hours >= 23 && mins >= 30);
+  return inEarlierSegment || inLaterSegment
 }
 
-console.log('dont run')
-const dontRun = dontRunBasedOnTime()
-console.log(dontRun)
-if(!dontRun){
+
+console.log('run based on time')
+const run = runBasedOnTime()
+console.log(run)
+if(run){
   exec("./new", function (error, stdout, stderr){
     console.log(error, stdout, stderr);
   });
 }
+
 setInterval(function(){
-  const dontRun = dontRunBasedOnTime()
-  if(!dontRun){
+  const run = runBasedOnTime()
+  if(run){
     exec("./new", function (error, stdout, stderr){
       console.log(error, stdout, stderr);
     });
