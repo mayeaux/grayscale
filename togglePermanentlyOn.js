@@ -10,15 +10,20 @@ const fileValue = fs.readFileSync(pathToFile, {encoding: 'utf-8'});
 // switch the value each time this is pressed
 if(fileValue == 'grayscaleOn'){
   fs.writeFileSync(pathToFile,'grayscaleOff')
+  exec("./alwaysTurnGrayscaleOff", function (error, stdout, stderr){
+    console.log(error, stdout, stderr);
+    process.exit(0);
+  });
   notifier.notify('Grayscale turned off');
-  process.exit(0);
+
 } else {
   exec("./alwaysoff", function (error, stdout, stderr){
     console.log(error, stdout, stderr);
+    process.exit(0);
   });
   fs.writeFileSync(pathToFile,'grayscaleOn')
   notifier.notify('Grayscale turned on');
-  process.exit(0);
+
 }
 
 
