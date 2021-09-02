@@ -8,14 +8,8 @@
 const { exec } = require("child_process");
 const fs = require('fs');
 
-
-
 function shouldRun(){
-  const fileValue = fs.readFileSync('./onOrOff.txt', {encoding: 'utf-8'});
-  console.log('file value');
-  console.log(fileValue);
-  console.log('grayscaleOn')
-  console.log(fileValue === 'grayscaleOn');
+  const fileValue = fs.readFileSync('./onOrOff', {encoding: 'utf-8'});
   if(fileValue === 'grayscaleOn'){
     return true
   } else {

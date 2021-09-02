@@ -1,0 +1,22 @@
+{
+  "name": "grayscale",
+  "version": "1.0.0",
+  "description": "",
+  "main": "checkWhetherToTurnOffConstantly.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayeaux/grayscale.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayeaux/grayscale/issues"
+  },
+  "homepage": "https://github.com/mayeaux/grayscale#readme",
+  "dependencies": {
+    "node-notifier": "^10.0.0"
+  }
+}
