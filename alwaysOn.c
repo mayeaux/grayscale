@@ -1,5 +1,8 @@
 // clang -g -O2 -std=c11 -Wall -framework ApplicationServices
 // https://stackoverflow.com/questions/14163788/how-does-on-screen-color-inversion-work-in-os-x
+
+// clang -g -O2 -std=c11 -Wall -framework ApplicationServices alwaysOn.c -o alwaysOn
+
 #include <stdio.h>
 #include <ApplicationServices/ApplicationServices.h>
 
@@ -12,11 +15,11 @@ main(int argc, char** argv)
     bool isGrayscale = CGDisplayUsesForceToGray();
     printf("isGrayscale = %d\n", isGrayscale);
     // switch to grayscale if it's not on
-    if(isGrayscale == 0){
-        CGDisplayForceToGray(true);
+    if(isGrayscale == 1){
+        CGDisplayForceToGray(false);
     // already turned on, dont need to do anything
     } else {
-        printf("No need to turn gray\n");
+        printf("No need to turn colours\n");
     }
     printf("Grayscale is now: %d\n", CGDisplayUsesForceToGray());
 

@@ -12,9 +12,9 @@ function runBasedOnTime(){
   console.log(d, hours, mins);
 
   // hours are smaller than 9 and larger than 11:30 pm
-  const inEarlierSegment = hours < 9
+  const inEarlierSegment = hours < 8
   // if hours greater or equal to 23 (11 pm or over) while minutes are equal or over 30
-  const inLaterSegment = (hours >= 23 && mins >= 30);
+  const inLaterSegment = (hours >= 23 && mins >= 59);
   return inEarlierSegment || inLaterSegment
 }
 
